@@ -1,0 +1,10 @@
+{
+  "title.morecavesounds.config": "More Cave Sounds Config",
+  "category.morecavesounds.general": "General Settings",
+  "option.morecavesounds.minIntervalSeconds": "Minimum Interval (Seconds)",
+  "tooltip.morecavesounds.minIntervalSeconds": "Set the minimum interval between cave sounds",
+  "option.morecavesounds.maxIntervalSeconds": "Maximum Interval (Seconds)",
+  "tooltip.morecavesounds.maxIntervalSeconds": "Set the maximum interval between cave sounds",
+  "option.morecavesounds.soundVolume": "Sound Volume",
+  "tooltip.morecavesounds.soundVolume": "Set the volume of the cave sounds"
+}
