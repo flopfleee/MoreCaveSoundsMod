@@ -20,12 +20,12 @@ public class MoreCaveSounds implements ModInitializer {
 	private static final int TICKS_PER_SECOND = 20;
 	private int tickCounter = 0;
 	private int nextInterval = 0;
-
+	private static MoreCaveSounds instance;
 	public static MoreCaveSoundsConfig config;
 
 	@Override
 	public void onInitialize() {
-		// Load the config
+		instance = this;
 		config = MoreCaveSoundsConfig.load();
 		setNextInterval();
 
@@ -62,6 +62,13 @@ public class MoreCaveSounds implements ModInitializer {
 					config.soundVolume,
 					1.0F
 			);
+		}
+	}
+
+	public static void reloadConfig() {
+		config = MoreCaveSoundsConfig.load();
+		if (instance != null) {
+			instance.setNextInterval();
 		}
 	}
 }

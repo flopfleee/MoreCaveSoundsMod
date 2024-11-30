@@ -17,7 +17,7 @@ public class ModMenuIntegration {
     public Screen create(Screen parent) {
         if (config == null) {
             LOGGER.error("Config is null! Attempting to create default config.");
-            config = new MoreCaveSoundsConfig(); // Fallback to default config
+            config = new MoreCaveSoundsConfig();
         }
 
         try {
@@ -28,7 +28,7 @@ public class ModMenuIntegration {
             ConfigCategory general = builder.getOrCreateCategory(Text.translatable("category.morecavesounds.general"));
             ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-            // Min Interval
+
             IntegerListEntry minIntervalEntry = entryBuilder.startIntField(
                             Text.translatable("option.morecavesounds.minIntervalSeconds"),
                             config.minIntervalSeconds)
@@ -38,7 +38,7 @@ public class ModMenuIntegration {
                     .build();
             general.addEntry(minIntervalEntry);
 
-            // Max Interval
+
             IntegerListEntry maxIntervalEntry = entryBuilder.startIntField(
                             Text.translatable("option.morecavesounds.maxIntervalSeconds"),
                             config.maxIntervalSeconds)
@@ -48,7 +48,7 @@ public class ModMenuIntegration {
                     .build();
             general.addEntry(maxIntervalEntry);
 
-            // Sound Volume
+
             FloatListEntry volumeEntry = entryBuilder.startFloatField(
                             Text.translatable("option.morecavesounds.soundVolume"),
                             config.soundVolume)
@@ -58,11 +58,17 @@ public class ModMenuIntegration {
                     .build();
             general.addEntry(volumeEntry);
 
-            builder.setSavingRunnable(config::save);
+
+            builder.setSavingRunnable(() -> {
+                config.save();
+                MoreCaveSounds.reloadConfig();
+            });
+
             return builder.build();
         } catch (Exception e) {
             LOGGER.error("Error creating config screen!", e);
             return parent;
         }
     }
+
 }
