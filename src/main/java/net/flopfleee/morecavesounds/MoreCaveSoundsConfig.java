@@ -14,9 +14,9 @@ public class MoreCaveSoundsConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "morecavesounds.json");
 
-    public int minIntervalSeconds = 300; // Default minimum interval
-    public int maxIntervalSeconds = 1200; // Default maximum interval
-    public float soundVolume = 0.5f; // Default volume
+    public int minIntervalSeconds = 300;
+    public int maxIntervalSeconds = 1200;
+    public float soundVolume = 0.5f;
 
     public static MoreCaveSoundsConfig load() {
         if (CONFIG_FILE.exists()) {
@@ -26,7 +26,7 @@ public class MoreCaveSoundsConfig {
                 e.printStackTrace();
             }
         }
-        return new MoreCaveSoundsConfig(); // Return default config if loading fails
+        return new MoreCaveSoundsConfig();
     }
 
     public void save() {

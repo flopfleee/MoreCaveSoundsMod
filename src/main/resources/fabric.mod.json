@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/flopfleee/MoreCaveSoundsMod"
 	},
 	"license": "MIT",
 	"icon": "assets/morecavesounds/icon.png",
@@ -23,6 +23,9 @@
 		],
 		"fabric-datagen": [
 			"net.flopfleee.morecavesounds.MoreCaveSoundsDataGenerator"
+		],
+		"modmenu": [
+			"net.flopfleee.morecavesounds.ModMenu"
 		]
 	},
 	"mixins": [
